@@ -1,0 +1,24 @@
+{
+  "name": "babel-plugin-dynamic-import-override",
+  "version": "1.0.0",
+  "description": "babel plugin to override dynamic import and attach error handler to all of them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.adobe.com:sakshgup/babel-plugin-dynamic-import-override.git"
+  },
+  "author": "sakshgup@adobe.com",
+  "publishConfig": {
+    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-adobe-release-local"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/generator": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/template": "^7.4.4"
+  }
+}
