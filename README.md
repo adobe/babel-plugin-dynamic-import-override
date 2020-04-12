@@ -1,6 +1,6 @@
 # babel-plugin-dynamic-import-override
 
-Babel plugin to override every dynamic import and attach catch to it, thus providing error handling when chunk loading will fail.
+Babel plugin that overrides every dynamic import and provides a way to attach successHandler and errorhandler to all dynamic imports. Thus providing error handling and success handling when chunk loading will fail or succeed.
 
 ## Installation
 
@@ -16,6 +16,8 @@ yarn add -D babel-plugin-dynamic-import-override
 
 - *`errorHandler`* - javascript code to be called inside catch clause, error object is accesible in `err`.
 
+- *`successHandler`* - javascript code to be called inside then clause, result  is accesible in `res`.
+
 ## Usage
 
 ### Via `babel.config.js` (Recommended)
@@ -28,6 +30,8 @@ module.exports = function (api) {
 
   const plugins = [
     ["babel-plugin-dynamic-import-override", {
+      "successHandler": `console.log('inside success handler, perform success handling here, result is available in res');
+        console.log(res);`,
       "errorHandler": `console.log('inside error handler, perform error handling here, error is available in err');
         console.log(err);`
     }]
@@ -46,6 +50,7 @@ module.exports = function (api) {
 {
   "plugins": [
     ["babel-plugin-dynamic-import-override", {
+      "successHandler": "console.log('inside success handler, perform success handling here, result is available in res', res);",
       "errorHandler": "console.log('inside error handler, perform error handling here, error is available in err', err);"
     }]
   ]
@@ -61,7 +66,12 @@ import('./Home.js');
 will be converted to,
 
 ```javascript
-Promise.resolve(import('./Home.js')).catch(err => {
+Promise.resolve(import('./Home.js'))
+.then(res => {
+  // --- successhandler code will come here ----
+  return res;
+})
+.catch(err => {
   // --- errorhandler code will come here ----
   throw err;
 });
@@ -76,12 +86,15 @@ import('./Home.js').then(data => console.log(data)).catch(err => {throw err;});
 will be converted to,
 
 ```javascript
-Promise.resolve(import('./Home.js').then(data => console.log(data)).catch(err => {throw err;})).catch(err => {
+Promise.resolve(import('./Home.js')
+.then(data => console.log(data))
+.then(res => {
+  // --- successhandler code will come here ----
+  return res;
+})
+.catch(err => {throw err;}))
+.catch(err => {
   // --- errorhandler code will come here ----
   throw err;
 });
 ```
-
-## License
-
-MIT
