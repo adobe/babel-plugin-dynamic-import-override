@@ -120,5 +120,5 @@ import('./Home.js');
 
 Change it to following,
 ```javascript
-import(/* skipImportOverride: "true" */ './Home.js');
+import(/* skipImportOverride: true */ './Home.js');
 ```

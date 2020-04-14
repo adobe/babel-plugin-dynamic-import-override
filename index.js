@@ -11,8 +11,7 @@ module.exports = function({template}) {
           if (skipOverrideStart > -1) {
             let skipOverride = importNode.substring(skipOverrideStart);
             skipOverride = skipOverride.substring(0, skipOverride.indexOf('*/'));
-            skipOverride = skipOverride.split(':');
-            if (skipOverride[1].trim() !== "true") {
+            if (skipOverride.split(':')[1].trim() === "true") {
               return;
             }
           }
