@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-dynamic-import-override",
   "version": "1.0.0",
-  "description": "babel plugin to override dynamic import and attach error handler to all of them",
+  "description": "babel plugin to override dynamic import and attach error and success handler to all of them",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

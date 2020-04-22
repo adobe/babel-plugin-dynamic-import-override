@@ -1,7 +1,11 @@
 # babel-plugin-dynamic-import-override
 
 Babel plugin that overrides every dynamic import and provides a way to attach successHandler and errorhandler to all dynamic imports. Thus providing error handling and success handling when chunk loading will fail or succeed.
-You can also skip some dynamic imports from overriding.
+It also provides way to skip some dynamic imports from overriding.
+
+## Goals
+
+There might be some scenarios where you want to take some action when any chunk fails to load in an application. Since, all the lazy-loaded chunks in a application are loaded by dynamic import, an easy way can be to override all dynamic imports of application and attaching errorHandler to all dynamic imports. This way you need not to ask module developer to change all the dynamic imports manually and change can be driven from single file, babel config.
 
 ## Installation
 
@@ -13,13 +17,13 @@ npm install -D babel-plugin-dynamic-import-override
 yarn add -D babel-plugin-dynamic-import-override
 ```
 
-#### Options
+### Options
 
 - *`errorHandler`* - javascript code to be called inside catch clause, error object is accesible in `err`.
 
 - *`successHandler`* - javascript code to be called inside then clause, result  is accesible in `res`.
 
-#### Skip Overriding Dynamic Import
+### Skip Overriding Dynamic Import
 
 To skip overriding some dynamic imports, use following magic comment in the dynamic imports
 
@@ -121,4 +125,12 @@ import('./Home.js');
 Change it to following,
 ```javascript
 import(/* skipImportOverride: true */ './Home.js');
-```
+`````
+
+## Contributing
+
+Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
+
+## Licensing
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
