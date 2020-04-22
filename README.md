@@ -1,11 +1,11 @@
 # babel-plugin-dynamic-import-override
 
-Babel plugin that overrides every dynamic import and provides a way to attach successHandler and errorhandler to all dynamic imports. Thus providing error handling and success handling when chunk loading will fail or succeed.
+Babel plugin that overrides every dynamic import and provides a way to attach successHandler and errorHandler to all dynamic imports. Thus providing error handling and success handling when chunk loading will fail or succeed.
 It also provides way to skip some dynamic imports from overriding.
 
 ## Goals
 
-There might be some scenarios where you want to take some action when any chunk fails to load in an application. Since, all the lazy-loaded chunks in a application are loaded by dynamic import, an easy way can be to override all dynamic imports of application and attaching errorHandler to all dynamic imports. This way you need not to ask module developer to change all the dynamic imports manually and change can be driven from single file, babel config.
+There might be some scenarios where you want to take some action when any chunk fails to load in an application. Since, all the lazy-loaded chunks in a application are loaded by dynamic import, an easy way can be to override all dynamic imports of application and attaching errorHandler to all dynamic imports. This way you need not to ask module developer to change all the dynamic imports manually and change can be driven from single file, babel.config.js (or .babelrc).
 
 ## Installation
 
@@ -94,20 +94,23 @@ Promise.resolve(import('./Home.js'))
 
 Any .catch and .then attached to dynamic import will stay as it is and will not be replaced.
 
+
 ```javascript
-import('./Home.js').then(data => console.log(data)).catch(err => {throw err;});
+import('./Home.js')
+.then(data => console.log(data))
+.catch(err => {throw err;});
 ```
 
 will be converted to,
 
 ```javascript
 Promise.resolve(import('./Home.js')
-.then(data => console.log(data))
+.then(data => console.log(data)) // Original then handler
 .then(res => {
   // --- successhandler code will come here ----
   return res;
 })
-.catch(err => {throw err;}))
+.catch(err => {throw err;})) // Original catch handler
 .catch(err => {
   // --- errorhandler code will come here ----
   throw err;
