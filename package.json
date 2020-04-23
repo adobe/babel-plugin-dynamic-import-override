@@ -8,9 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.corp.adobe.com:sakshgup/babel-plugin-dynamic-import-override.git"
+    "url": "git@github.com:adobe/babel-plugin-dynamic-import-override.git"
   },
-  "author": "sakshgup@adobe.com",
+  "author": "Sakshi Gupta <sakshgup@adobe.com>",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
