@@ -11,9 +11,6 @@
     "url": "git@git.corp.adobe.com:sakshgup/babel-plugin-dynamic-import-override.git"
   },
   "author": "sakshgup@adobe.com",
-  "publishConfig": {
-    "registry": "https://artifactory.corp.adobe.com/artifactory/api/npm/npm-adobe-release-local"
-  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
