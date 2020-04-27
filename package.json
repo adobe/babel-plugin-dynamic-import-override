@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-dynamic-import-override",
-  "version": "1.0.0",
-  "description": "babel plugin to override dynamic import and attach error and success handler to all of them",
+  "version": "1.1.0",
+  "description": "Babel-Plugin to override every dynamic import and attach error/success handler",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,21 @@
     "type": "git",
     "url": "git@github.com:adobe/babel-plugin-dynamic-import-override.git"
   },
-  "author": "Sakshi Gupta <sakshgup@adobe.com>",
+  "keywords": [
+    "babel",
+    "plugin",
+    "dynamic",
+    "import",
+    "override",
+    "error",
+    "handler"
+  ],
+  "author": "Sakshi Gupta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adobe/babel-plugin-dynamic-import-override/issues"
+  },
+  "homepage": "https://github.com/adobe/babel-plugin-dynamic-import-override#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
