@@ -41,7 +41,9 @@ module.exports = function({template}) {
           let newProgramNode = template(newImport, {
             plugins: ["dynamicImport"],
             preserveComments: true
-          })();
+          })({
+            importNode: importNode
+          });
           path.replaceWith(newProgramNode);
         }
       }
