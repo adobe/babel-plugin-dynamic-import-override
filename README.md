@@ -23,6 +23,13 @@ yarn add -D babel-plugin-dynamic-import-override
 
 - *`successHandler`* - javascript code to be called inside then clause, result  is accesible in `res`.
 
+*NOTE:* successHandler and errorHandler should be wrapped as string.
+Dynamic Import that has failed/succeeded can be accessed via following variables:
+  - `importNode` - Contains full code of dynamic import.
+      Example: `import('./Home.js')`
+  - `importName` - Contains file name of dynamic import.
+      Example: `./Home.js`
+
 ### Skip Overriding Dynamic Import
 
 To skip overriding some dynamic imports, use following magic comment in the dynamic imports

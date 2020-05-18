@@ -28,6 +28,7 @@ module.exports = function({template}) {
       CallExpression(path, state) {
         if(path.node.callee.type == 'Import' && path.node.callee.loc) {
           let importNode = generator(path.node).code;
+          let importName = generator(path.node.arguments[0]).code;
           // Skip overriding dynamic import if skipImportOverride is mentioned in magic comment
           let skipOverrideStart = importNode.indexOf('skipImportOverride');
           if (skipOverrideStart > -1) {
@@ -41,7 +42,10 @@ module.exports = function({template}) {
           let newProgramNode = template(newImport, {
             plugins: ["dynamicImport"],
             preserveComments: true
-          })();
+          })({
+            importNode: importNode,
+            importName: importName
+          });
           path.replaceWith(newProgramNode);
         }
       }
