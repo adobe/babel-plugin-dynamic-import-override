@@ -11,13 +11,15 @@
     "url": "git@github.com:adobe/babel-plugin-dynamic-import-override.git"
   },
   "keywords": [
-    "babel",
-    "plugin",
+    "babel-plugin",
+    "dynamic-import",
     "dynamic",
     "import",
     "override",
     "error",
-    "handler"
+    "handler",
+    "webpack",
+    "chunk-error-handling"
   ],
   "author": "Sakshi Gupta",
   "license": "MIT",
