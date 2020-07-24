@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-dynamic-import-override",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Babel-Plugin to override every dynamic import and attach error/success handler",
   "main": "index.js",
   "scripts": {
