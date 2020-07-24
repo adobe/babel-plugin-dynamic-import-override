@@ -125,7 +125,7 @@ Promise.resolve(import('./Home.js')
 
 ### Example 2: Skip Overriding Dynamic Imports
 
-If you want to skip following dynamic import to not override,
+To skip overriding following dynamic import,
 
 ```javascript
 import('./Home.js');
